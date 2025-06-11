@@ -1,0 +1,115 @@
+/* src/components/Header.css */
+
+.header {
+  --background-color: rgba(0, 0, 0, 0);
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.scrolled .header {
+  --background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Header.css */
+
+/* Botones para login y registro */
+.header-buttons button {
+  background: transparent;
+  border: none;
+  color: #fff; /* Color blanco para que contraste */
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Puedes diferenciar el registro con otro color si quieres */
+.header-buttons .btn-register {
+  color: #ffd700; /* Dorado */
+}
+
+.header-buttons .btn-register:hover {
+  background-color: rgba(255, 215, 0, 0.3);
+}
+
+.navmenu .header-buttons {
+  display: flex !important;
+  gap: 10px;
+  margin-left: 20px;
+  align-items: center;
+}
+
+.navmenu .header-buttons button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navmenu .header-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navmenu .header-buttons .btn-register {
+  color: #ffd700;
+}
+
+.navmenu .header-buttons .btn-register:hover {
+  background-color: rgba(255, 215, 0, 0.3);
+}
+
+
+
+/* src/components/Header.css */
+
+.header {
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.header.visible {
+  transform: translateY(0);
+}
+
+
+
+
+

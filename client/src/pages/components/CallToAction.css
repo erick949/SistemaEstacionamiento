@@ -1,0 +1,23 @@
+.cta-btn2 {
+  margin: 10px 5px;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 15px; /* Bordes más suaves */
+  transition: 0.3s ease;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Borde sutil y elegante */
+  text-decoration: none;
+  background: rgba(120, 120, 120, 0.2); /* Gris translúcido */
+  backdrop-filter: blur(4px); /* Efecto cristal */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra moderna */
+}
+
+.cta-btn2:hover {
+  background: rgba(120, 120, 120, 0.4); /* Más visible al hover */
+  border-color: rgba(255, 255, 255, 0.5); /* Borde un poco más marcado */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); /* Sombra más profunda */
+  color: white;
+}

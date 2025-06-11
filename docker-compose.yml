@@ -1,0 +1,40 @@
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: django_server
+    volumes:
+      - ./server:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env  # si tienes variables en archivo .env para Django
+    depends_on:
+      - db
+
+  client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    container_name: react_client
+    ports:
+      - "3000:80"  # El frontend correrá en puerto 3000 local, pero sirve con nginx en contenedor puerto 80
+    depends_on:
+      - server
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: tu_usuario
+      POSTGRES_PASSWORD: tu_password
+      POSTGRES_DB: tu_basedatos
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,202 @@
+/* Contenedor principal */
+.layout-wrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Contenedor de contenido */
+.layout-content {
+  padding: 20px 30px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  border: 1px solid #e3e6f0;
+  margin-bottom: 1.5rem;
+}
+
+/* Cabecera de tarjeta */
+.card-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid #e3e6f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #4e73df;
+  background-color: #f1f3f5;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Contenido de tarjeta */
+.card-body {
+  padding: 20px;
+}
+
+/* Texto grande para estadísticas */
+.text-large {
+  font-size: 1.75rem;
+  font-weight: 700;
+   color: #000000; /* blanco para asegurar contraste en fondo primario */
+}
+
+
+
+/* Texto pequeño y secundario */
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Switch estilo personalizado */
+.switcher {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+}
+
+.switcher-input {
+  display: none;
+}
+
+.switcher-indicator {
+  position: absolute;
+  cursor: pointer;
+  background: #ddd;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background 0.3s ease;
+}
+
+.switcher-indicator::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+.switcher-input:checked + .switcher-indicator {
+  background: #4e73df;
+}
+
+.switcher-input:checked + .switcher-indicator::before {
+  transform: translateX(18px);
+}
+
+.switcher-yes,
+.switcher-no {
+  display: none; /* Opcional: puedes activar si quieres texto dentro del switch */
+}
+
+/* Íconos grandes dentro de tarjetas métricas */
+.display-4 {
+  font-size: 3rem;
+}
+
+/* Colores y fondos de tarjetas personalizadas */
+.bg-pattern-2 {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #e9ecef 0,
+    #e9ecef 10px,
+    #f8f9fa 10px,
+    #f8f9fa 20px
+  );
+}
+
+.bg-pattern-2-dark {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #6a6c6d7a 0,
+    #44474b5e 10px,
+    #434a534d 10px,
+    #40404188 20px
+  );
+  color: #f8f9fa; /* Más claro que #fff si el texto necesita más brillo */
+}
+
+
+
+
+.bg-primary .small {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.125rem; /* 18px */
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgb(34, 33, 33) !important; /* blanco puro para mejor contraste */
+}
+
+
+.bg-pattern-2-dark .text-muted {
+  color: rgb(245, 255, 254) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-style: italic; */
+   font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.bg-primary {
+  background-color: #4e73df !important;
+  color: white !important;
+}
+
+/* Sombra para gráficos (si usas canvas o div para gráficos) */
+.chart-shadow {
+  box-shadow: 0 3px 6px rgb(78 115 223 / 0.3);
+  border-radius: 4px;
+}
+
+.chart-shadow-primary {
+  box-shadow: 0 3px 6px rgba(78, 115, 223, 0.5);
+  border-radius: 4px;
+}
+
+/* Media y alineación para tarjetas métricas */
+.media {
+  display: flex;
+  align-items: center;
+}
+
+.media-body {
+  flex: 1;
+}
+
+.ml-3 {
+  margin-left: 1rem !important;
+}
+
+/* Texto grande en métricas */
+.text-big {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Colores para texto */
+.text-primary {
+  color: #4e73df !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .layout-content {
+    padding: 15px 15px;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+}

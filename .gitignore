@@ -1,0 +1,67 @@
+# === Global ignores ===
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+.DS_Store
+Thumbs.db
+
+# === Python / Django (client) ===
+client/__pycache__/
+client/**/*.py[cod]
+client/*.py[cod]
+client/venv/
+client/env/
+client/.env
+client/.env.*
+client/db.sqlite3
+client/media/
+client/staticfiles/
+client/*.sqlite3
+client/*.log
+client/**/__pycache__/
+client/**/*.pyc
+
+# Optional: migrations (si las generas en auto)
+client/**/migrations/
+!client/**/migrations/__init__.py
+
+# === React (server) ===
+server/node_modules/
+server/.env
+server/.env.*
+server/dist/
+server/build/
+server/.next/
+server/.turbo/
+server/.cache/
+server/.vscode/
+server/public/assets/
+
+# === Docker ===
+# Ignore Docker environment files if any
+.env.docker
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Ignore Docker volumes, logs, tmp files (si tienes carpetas locales de volúmenes)
+docker-volume-data/
+docker-temp/
+
+# Ignore Docker logs (si guardas logs fuera del contenedor)
+docker.log
+*.log
+
+# === Editor/IDE files ===
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# === OS generated files ===
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
