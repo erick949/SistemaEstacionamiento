@@ -22,7 +22,8 @@ RUN pip install -r requirements.txt
 
 # Copia el código
 # COPY server /app
-COPY server/. /app
+# COPY server/. /app
+COPY . /app
 
 
 # Expone puerto 8000 para Django
