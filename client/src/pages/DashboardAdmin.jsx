@@ -74,7 +74,7 @@ const DashboardAdmin = () => {
           <button
             onClick={() => {
               localStorage.removeItem('token'); // o cualquier otro valor de sesión
-              window.location.href = '/login'; // redirige al login
+              window.location.href = '/'; // redirige al login
             }}
             style={{
               ...buttonStyle,
