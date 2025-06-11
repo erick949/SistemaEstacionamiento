@@ -4,7 +4,7 @@ const teamMembers = [
   {
     name: "Carlos Martínez",
     role: "General Manager",
-    image: "src/assets/img/team/team-1.jpg",
+    image: "assets/img/team/team-1.jpg",
     social: {
       twitter: "",
       facebook: "",
@@ -15,7 +15,7 @@ const teamMembers = [
   {
     name: "Elena Rodríguez",
     role: "Operations Supervisor",
-    image: "src/assets/img/team/team-2.jpg",
+    image: "assets/img/team/team-2.jpg",
     social: {
       twitter: "",
       facebook: "",
@@ -26,7 +26,7 @@ const teamMembers = [
   {
     name: "Luis Fernández",
     role: "Technology Director",
-    image: "src/assets/img/team/team-3.jpg",
+    image: "assets/img/team/team-3.jpg",
     social: {
       twitter: "",
       facebook: "",
@@ -37,7 +37,7 @@ const teamMembers = [
   {
     name: "María Gómez",
     role: "Customer Service Lead",
-    image: "src/assets/img/team/team-4.jpg",
+    image: "assets/img/team/team-4.jpg",
     social: {
       twitter: "",
       facebook: "",

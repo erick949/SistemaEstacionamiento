@@ -47,7 +47,7 @@ const PortfolioSection = () => {
                 className={`col-lg-4 col-md-6 portfolio-item isotope-item filter-${category}`}
               >
                 <img
-                  src={`src/assets/img/portfolio/${img}`}
+                  src={`assets/img/portfolio/${img}`}
                   className="img-fluid"
                   alt={title}
                 />
@@ -55,7 +55,7 @@ const PortfolioSection = () => {
                   <h4>{title}</h4>
                   <p>Where vision meets execution</p>
                   <a
-                    href={`src/assets/img/portfolio/${img}`}
+                    href={`assets/img/portfolio/${img}`}
                     title={title}
                     data-gallery={`portfolio-gallery-${category}`}
                     className="glightbox preview-link"

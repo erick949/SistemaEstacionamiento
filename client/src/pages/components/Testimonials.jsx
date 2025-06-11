@@ -10,28 +10,28 @@ const testimonials = [
       "I always park here when I go downtown. It's clean, safe, and the staff is super helpful. I love being able to book online!",
     name: "Michael Davis",
     title: "Business Professional",
-    image: "src/assets/img/testimonials/testimonials-1.jpg",
+    image: "assets/img/testimonials/testimonials-1.jpg",
   },
   {
     quote:
       "This parking lot saved me so much time. Real-time space availability and fast entry make my daily routine easier.",
     name: "Samantha Lee",
     title: "Frequent Commuter",
-    image: "src/assets/img/testimonials/testimonials-2.jpg",
+    image: "assets/img/testimonials/testimonials-2.jpg",
   },
   {
     quote:
       "As an EV owner, I really appreciate the charging stations. It's great to leave my car and come back to a full battery.",
     name: "Carlos Rivera",
     title: "Electric Vehicle Owner",
-    image: "src/assets/img/testimonials/testimonials-3.jpg",
+    image: "assets/img/testimonials/testimonials-3.jpg",
   },
   {
     quote:
       "The mobile app is intuitive and lets me handle all payments and invoices automatically. Very professional service.",
     name: "Emily Nguyen",
     title: "Tech Entrepreneur",
-    image: "src/assets/img/testimonials/testimonials-4.jpg",
+    image: "assets/img/testimonials/testimonials-4.jpg",
   },
 ];
 

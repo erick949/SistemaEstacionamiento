@@ -31,7 +31,7 @@ function CallToAction() {
         style={{ position: "relative", padding: "4rem 1rem", textAlign: "center", backgroundColor: "#1a1a1a", color: "#fff" }}
       >
         <img
-          src="src/assets/img/cta-bg.jpg"
+          src="assets/img/cta-bg.jpg"
           alt="Parking Background"
           style={{
             position: "absolute",

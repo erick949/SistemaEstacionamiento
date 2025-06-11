@@ -31,7 +31,7 @@ function Hero() {
 
       <div className="container text-center" data-aos="fade-up" data-aos-delay="100">
         <img
-          src="/src/assets/img/logo.png"
+          src="/assets/img/logo.png"
           className="img-fluid mb-3"
           alt="Imperial Logo"
         />

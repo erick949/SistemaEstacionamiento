@@ -1,4 +1,4 @@
-/* src/components/Header.css */
+/* components/Header.css */
 
 .header {
   --background-color: rgba(0, 0, 0, 0);
@@ -94,7 +94,7 @@
 
 
 
-/* src/components/Header.css */
+/* components/Header.css */
 
 .header {
   transition: transform 0.3s ease-in-out;

@@ -16,7 +16,7 @@ function About() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <img src="src/assets/img/about.jpg" className="img-fluid" alt="About Us" />
+            <img src="assets/img/about.jpg" className="img-fluid" alt="About Us" />
           </div>
 
           <div
