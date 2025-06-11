@@ -1,5 +1,5 @@
 // const API_URL = 'http://localhost:8000/persona/'; // ajusta la URL si es necesario
-const API_BASE_URL = `${import.meta.env.VITE_API_URL}persona/`;
+const API_URL = `${import.meta.env.VITE_API_URL}persona/`;
 
 const handleResponse = async (response) => {
   if (response.ok) {
