@@ -21,7 +21,9 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copia el código
-COPY server /app
+# COPY server /app
+COPY server/. /app
+
 
 # Expone puerto 8000 para Django
 EXPOSE 8000
