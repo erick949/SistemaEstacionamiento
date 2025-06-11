@@ -46,7 +46,7 @@ const DashboardAdmin = () => {
     <div style={{ display: 'flex', height: '100vh', width: '100vw', fontFamily: 'system-ui, sans-serif' }}>
       {mostrarAside && (
         <aside style={{
-          flex: '0 0 240px', // Ancho fijo
+          flex: '0 0 240px',
           background: 'linear-gradient(180deg, #1e3c72 0%, #2a5298 100%)',
           color: '#ecf0f1',
           padding: '25px',
@@ -56,6 +56,7 @@ const DashboardAdmin = () => {
           transition: 'all 0.3s ease-in-out',
         }}>
           <h2 style={{ marginBottom: '30px', fontSize: '22px', fontWeight: 'bold' }}>Administrador</h2>
+
           {['graficas', 'autos', 'personas', 'reservas', 'usuarios', 'pagos', 'registros', 'reporte'].map((seccion) => (
             <button
               key={seccion}
@@ -68,16 +69,31 @@ const DashboardAdmin = () => {
               {seccion.charAt(0).toUpperCase() + seccion.slice(1)}
             </button>
           ))}
+
+          {/* Botón de Cerrar sesión */}
+          <button
+            onClick={() => {
+              localStorage.removeItem('token'); // o cualquier otro valor de sesión
+              window.location.href = '/login'; // redirige al login
+            }}
+            style={{
+              ...buttonStyle,
+              backgroundColor: '#e74c3c',
+              marginTop: 'auto'
+            }}
+          >
+            Cerrar sesión
+          </button>
         </aside>
       )}
 
       <main style={{
-        flexGrow: 1, // Ocupa TODO el espacio restante
+        flexGrow: 1,
         padding: '30px',
         backgroundColor: '#f9f9fb',
         overflowY: 'auto',
         transition: 'all 0.3s ease-in-out',
-        width: 0 // Forzamos a que el ancho sea solo lo que queda
+        width: 0
       }}>
         {renderContenido()}
       </main>
