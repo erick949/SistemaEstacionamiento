@@ -3,22 +3,24 @@ FROM node:20-alpine as build-stage
 
 WORKDIR /app
 
-# Copia los archivos de dependencias desde el contexto actual (ya estamos en client/)
 COPY package*.json ./
 RUN npm install
 
-# Copia todo el contenido del proyecto client
+COPY .env.production .env.production
+
+# ✅ Copia el archivo de variables de entorno ANTES del build
+COPY .env.production .env.production
+
+# Copia todo lo demás
 COPY . ./
+
+# 🔧 Build con Vite usando .env.production
 RUN npm run build
 
-# Stage para servir estáticos con un servidor ligero (nginx)
+# Etapa de producción con nginx
 FROM nginx:stable-alpine AS production-stage
 
-# Copia el resultado del build al servidor nginx
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-
-# Copia configuración nginx personalizada si quieres (opcional)
-# COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 

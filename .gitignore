@@ -15,7 +15,7 @@ client/*.py[cod]
 client/venv/
 client/env/
 client/.env
-client/.env.*
+# client/.env.*
 client/db.sqlite3
 client/media/
 client/staticfiles/
