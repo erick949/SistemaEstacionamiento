@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { generarReporte } from '../api/reporte';
+import { obtenerPagos } from '../api/pago';
 import './ReporteForm.css';
 
 function ReporteForm() {
@@ -12,14 +13,41 @@ function ReporteForm() {
     observaciones: '',
   });
 
+  const [pagos, setPagos] = useState([]);
   const [resultado, setResultado] = useState(null);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (formData.tipoReporte === 'Financiero') {
+      obtenerPagos()
+        .then(setPagos)
+        .catch(() => {
+          setError('Error al obtener datos de pagos');
+        });
+    }
+  }, [formData.tipoReporte]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const generarTablaPagos = () => {
+    if (pagos.length === 0) return 'No hay pagos registrados.\n';
+
+    let tabla = 'ID | Cliente | Registro | Monto | Método | Fecha\n';
+    tabla += '---|---------|----------|--------|--------|------\n';
+
+    pagos.forEach((p) => {
+      const fecha = new Date(p.fechaPago).toLocaleDateString('es-MX', {
+        timeZone: 'America/Mexico_City',
+      });
+      tabla += `${p.id} | ${p.cliente} | ${p.registro_id} | $${p.monto} | ${p.metodoPago} | ${fecha}\n`;
+    });
+
+    return tabla;
   };
 
   const generarContenidoPlantilla = (data) => {
@@ -32,7 +60,11 @@ function ReporteForm() {
         case 'Estacionamientos':
           return `Plantilla Estacionamientos:\nMuestra información sobre la disponibilidad, ocupación, rotación y uso de los espacios de estacionamiento.`;
         case 'Financiero':
-          return `Plantilla Financiera:\nContiene el resumen de ingresos, egresos, transacciones recientes y balance financiero del período.`;
+          return (
+            `Plantilla Financiera:\nContiene el resumen de ingresos, egresos, transacciones recientes y balance financiero del período.\n\n` +
+            `--- Tabla de Pagos ---\n` +
+            generarTablaPagos()
+          );
         default:
           return 'Sin plantilla disponible.';
       }
@@ -64,7 +96,7 @@ ${data.observaciones}
     setError(null);
     setResultado(null);
 
-    // Validación manual por si el usuario ignora los required
+    // Validación simple
     if (
       !formData.fechaInicio ||
       !formData.fechaFin ||
@@ -76,8 +108,10 @@ ${data.observaciones}
       return;
     }
 
+    // Generar contenido
     const contenidoFinal = generarContenidoPlantilla(formData);
 
+    // Enviar al backend el objeto esperado
     const res = await generarReporte({
       tipoReporte: formData.tipoReporte,
       contenido: contenidoFinal,

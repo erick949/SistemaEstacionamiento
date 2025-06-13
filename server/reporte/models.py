@@ -55,8 +55,10 @@ class Reporte(models.Model):
 
 
     def exportarReporte(self):
-        nombre_archivo = f"reporte_{self.tipoReporte}_{self.fechaGeneracion.strftime('%Y%m%d_%H%M%S')}.pdf"
-        return f"reportes/{nombre_archivo}"
+        if self.archivo:
+            return self.archivo.name  # Esto devuelve algo como 'reportes/reporte_financiero_20250613_113212.pdf'
+        return ''
+
 
 
 
