@@ -34,7 +34,8 @@ def suma_pagos_por_rango(request):
         pagos = Pago.objects.filter(fechaPago__gte=fecha_inicio)
 
         # Agrupar por día
-        pagos_agrupados = pagos.extra({'fecha': "date(fechaPago)"}).values('fecha').annotate(total=Sum('monto')).order_by('fecha')
+        pagos_agrupados = pagos.extra({'fecha': "date(fecha_pago)"}).values('fecha').annotate(total=Sum('monto')).order_by('fecha')
+
 
         # ✅ Aquí se elimina el uso de strftime
         data = [

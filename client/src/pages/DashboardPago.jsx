@@ -12,7 +12,7 @@ function DashboardPago() {
 
   return (
     <div className="p-4">
-      <h1>Pagos</h1>
+      <h1 style={{ textAlign: 'center' }}>Pagos</h1>
       <PagoForm onPagoRegistrado={recargarPagos} />
       <hr />
       <PagoList key={reload} />

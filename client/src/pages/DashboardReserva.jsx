@@ -97,7 +97,7 @@ export default function Dashboard() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Gestión de Reservas</h1>
+      <h1 className="text-2xl font-bold mb-4" style={{ textAlign: 'center' }}>Reservas</h1>
 
       <form onSubmit={handleSubmitNueva} className="mb-4 space-x-2">
         <select

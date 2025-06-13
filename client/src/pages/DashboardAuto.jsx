@@ -7,7 +7,8 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Gestión de Autos</h1>
+      <h1 style={{ textAlign: 'center' }}>Autos</h1>
+
       <AutoForm onAutoCreado={() => setRefresh(!refresh)} />
       <AutoList key={refresh} />
     </div>

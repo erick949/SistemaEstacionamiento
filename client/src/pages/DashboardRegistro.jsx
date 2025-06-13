@@ -10,7 +10,7 @@ const DashboardRegistro = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Registros</h1>
+      <h1 className="text-2xl font-bold mb-4" style={{ textAlign: 'center' }}>Registros</h1>
       <RegistroForm onRegistroCreado={recargar} />
       <RegistroList key={reload} />
     </div>

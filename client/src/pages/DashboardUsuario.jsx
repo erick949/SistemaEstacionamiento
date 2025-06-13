@@ -111,7 +111,7 @@ export default function DashboardUsuario() {
   return (
     <div style={{   width: '100%', maxWidth: '100%' }}>
 
-      <h1>Usuarios</h1>
+      <h1 style={{ textAlign: 'center' }}>Usuarios</h1>
 
       {mensaje && (
         <div style={{ marginBottom: "1rem", color: "green", fontWeight: "bold" }}>

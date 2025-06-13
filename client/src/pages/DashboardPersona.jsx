@@ -100,7 +100,7 @@ function Dashboard() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>Crear Persona</h2>
+      <h1 style={{ textAlign: 'center' }}>Personas</h1>
       <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
         {/* 👇 SELECT de usuarios */}
         <select
@@ -138,7 +138,6 @@ function Dashboard() {
         <button type="submit">Crear</button>
       </form>
 
-      <h2>Lista de Personas</h2>
       <ul>
         {personas.map((p) => (
           <li key={p.id}>
@@ -168,7 +167,40 @@ function Dashboard() {
               </>
             ) : (
               <>
-                {p.telefono || 'Sin teléfono'} - {p.direccion} - {calcularEdad(p.fecha_nacimiento)} años
+                <span style={{ 
+                  backgroundColor: '#f0f0f0', 
+                  border: '1px solid #ccc', 
+                  borderRadius: '6px', 
+                  padding: '6px 10px', 
+                  marginRight: '6px', 
+                  boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                  display: 'inline-block' 
+                }}>
+                  {p.telefono || 'Sin teléfono'}
+                </span>
+                <span style={{ 
+                  backgroundColor: '#f0f0f0', 
+                  border: '1px solid #ccc', 
+                  borderRadius: '6px', 
+                  padding: '6px 10px', 
+                  marginRight: '6px', 
+                  boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                  display: 'inline-block' 
+                }}>
+                  {p.direccion}
+                </span>
+                <span style={{ 
+                  backgroundColor: '#f0f0f0', 
+                  border: '1px solid #ccc', 
+                  borderRadius: '6px', 
+                  padding: '6px 10px', 
+                  marginRight: '6px', 
+                  boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                  display: 'inline-block' 
+                }}>
+                  {calcularEdad(p.fecha_nacimiento)} años
+                </span>
+
                 <button onClick={() => handleEliminar(p.id)} style={{ marginLeft: '10px' }}>
                   Eliminar
                 </button>
