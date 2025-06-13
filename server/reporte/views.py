@@ -22,8 +22,13 @@ def generar_reporte(request):
         resumen = datos.get('resumen')
         observaciones = datos.get('observaciones')
 
-        if not all([tipo, fecha_inicio, fecha_fin, usuario, resumen, observaciones]):
-            return JsonResponse({'error': 'Faltan campos requeridos'}, status=400)
+        faltantes = [campo for campo in ['tipoReporte', 'fechaInicio', 'fechaFin', 'usuario', 'resumen', 'observaciones'] if not datos.get(campo)]
+
+        if faltantes:
+            return JsonResponse({'error': f'Faltan campos requeridos: {", ".join(faltantes)}'}, status=400)
+
+        # resto del código...
+
 
         # Crear contenido del reporte según el tipo
         contenido = f"""
