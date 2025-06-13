@@ -30,7 +30,6 @@ function PagoList() {
 
   return (
     <div>
-      <h2>Lista de Pagos</h2>
       <ul>
         {pagos.map((pago) => (
           <li key={pago.id}>

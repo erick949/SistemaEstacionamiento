@@ -53,32 +53,83 @@ export default function AutoList() {
       {autos.map((auto) => (
         <li key={auto.id}>
           {editandoId === auto.id ? (
-            <>
-              <input
-                name="placa"
-                value={formData.placa}
-                onChange={handleChange}
-              />
-              <input
-                name="modelo"
-                value={formData.modelo}
-                onChange={handleChange}
-              />
-              <input
-                name="color"
-                value={formData.color}
-                onChange={handleChange}
-              />
-              <button onClick={guardarCambios}>Guardar</button>
-              <button onClick={cancelarEdicion}>Cancelar</button>
-            </>
-          ) : (
-            <>
-              {auto.placa} - {auto.modelo} - {auto.color} - Cliente: {auto.cliente_usuario}
-              <button onClick={() => iniciarEdicion(auto)}>Modificar</button>
-              <button onClick={() => handleEliminar(auto.id)}>Eliminar</button>
-            </>
-          )}
+          <>
+            <input
+              name="placa"
+              value={formData.placa}
+              onChange={handleChange}
+              style={{ border: '2px solid blue', borderRadius: '4px', marginBottom: '5px' }}
+            />
+            <input
+              name="modelo"
+              value={formData.modelo}
+              onChange={handleChange}
+              style={{ border: '2px solid blue', borderRadius: '4px', marginBottom: '5px' }}
+            />
+            <input
+              name="color"
+              value={formData.color}
+              onChange={handleChange}
+              style={{ border: '2px solid blue', borderRadius: '4px', marginBottom: '5px' }}
+            />
+            <button onClick={guardarCambios}>Guardar</button>
+            <button onClick={cancelarEdicion}>Cancelar</button>
+          </>
+        ) : (
+        <>
+            <span style={{ 
+                backgroundColor: '#f0f0f0', 
+                border: '1px solid #ccc', 
+                borderRadius: '6px', 
+                padding: '6px 10px', 
+                marginRight: '6px', 
+                boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                display: 'inline-block' 
+              }}>
+                {auto.placa}
+              </span>
+              <span style={{ 
+                backgroundColor: '#f0f0f0', 
+                border: '1px solid #ccc', 
+                borderRadius: '6px', 
+                padding: '6px 10px', 
+                marginRight: '6px', 
+                boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                display: 'inline-block' 
+              }}>
+                {auto.modelo}
+              </span>
+              <span style={{ 
+                backgroundColor: '#f0f0f0', 
+                border: '1px solid #ccc', 
+                borderRadius: '6px', 
+                padding: '6px 10px', 
+                marginRight: '6px', 
+                boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                display: 'inline-block' 
+              }}>
+                {auto.color}
+              </span>
+              <span style={{ 
+                backgroundColor: '#f0f0f0', 
+                border: '1px solid #ccc', 
+                borderRadius: '6px', 
+                padding: '6px 10px', 
+                marginRight: '6px', 
+                boxShadow: '0 0 4px rgba(0, 123, 255, 0.4)', 
+                display: 'inline-block' 
+              }}>
+                Cliente: {auto.cliente_usuario}
+              </span>
+
+
+            <button onClick={() => iniciarEdicion(auto)}>Modificar</button>
+            <button onClick={() => handleEliminar(auto.id)}>Eliminar</button>
+
+
+          </>
+        )}
+
         </li>
       ))}
     </ul>
