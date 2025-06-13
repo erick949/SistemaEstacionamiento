@@ -3,7 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from datetime import datetime
 import json
-from .models import Reporte, Pago
+from .models import Reporte
+from pago.models import Pago
 
 
 @csrf_exempt
