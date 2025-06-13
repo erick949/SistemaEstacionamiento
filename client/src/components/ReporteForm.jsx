@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { generarReporte } from '../api/reporte';
 import { obtenerPagos } from '../api/pago';
+import { obtenerUsuarios } from '../api/usuarios';
 import './ReporteForm.css';
 
 function ReporteForm() {
@@ -8,7 +9,6 @@ function ReporteForm() {
     tipoReporte: 'General',
     fechaInicio: '',
     fechaFin: '',
-    usuario: '',
     resumen: '',
     observaciones: '',
   });
@@ -96,37 +96,51 @@ ${data.observaciones}
     setError(null);
     setResultado(null);
 
-    // Validación simple
+    const nombreUsuario = localStorage.getItem("usuario");
+
     if (
       !formData.fechaInicio ||
       !formData.fechaFin ||
-      !formData.usuario.trim() ||
       !formData.resumen.trim() ||
       !formData.observaciones.trim()
     ) {
-      setError('Todos los campos deben estar completos.');
+      setError("Todos los campos deben estar completos.");
       return;
     }
 
-    // Generar contenido
-    const contenidoFinal = generarContenidoPlantilla(formData);
+    try {
+      const listaUsuarios = await obtenerUsuarios();
+      const usuarioEncontrado = listaUsuarios.find((u) => u.usuario === nombreUsuario);
 
-    // Enviar al backend el objeto esperado
-    const res = await generarReporte({
-      tipoReporte: formData.tipoReporte,
-      fechaInicio: formData.fechaInicio,
-      fechaFin: formData.fechaFin,
-      usuario: formData.usuario,
-      resumen: formData.resumen,
-      observaciones: formData.observaciones,
-      contenido: contenidoFinal,
-  });
+      if (!usuarioEncontrado) {
+        setError("No se encontró el usuario autenticado.");
+        return;
+      }
 
+      const usuarioId = usuarioEncontrado.id;
 
-    if (res.error) {
-      setError(res.error);
-    } else {
-      setResultado(res);
+      const contenidoFinal = generarContenidoPlantilla({
+        ...formData,
+        usuario: nombreUsuario,
+      });
+
+      const res = await generarReporte({
+        tipoReporte: formData.tipoReporte,
+        fechaInicio: formData.fechaInicio,
+        fechaFin: formData.fechaFin,
+        usuario: usuarioId,
+        resumen: formData.resumen,
+        observaciones: formData.observaciones,
+        contenido: contenidoFinal,
+      });
+
+      if (res.error) {
+        setError(res.error);
+      } else {
+        setResultado(res);
+      }
+    } catch (err) {
+      setError("Error al obtener información del usuario.");
     }
   };
 
@@ -173,16 +187,13 @@ ${data.observaciones}
             required
             style={inputStyle}
           />
+        </div>
 
-          <input
-            type="text"
-            name="usuario"
-            value={formData.usuario}
-            onChange={handleChange}
-            placeholder="Usuario"
-            required
-            style={inputStyle}
-          />
+        {/* Mostrar el usuario actual autenticado */}
+        <div className="fila">
+          <div style={{ fontWeight: 'bold' }}>
+            Usuario actual: {localStorage.getItem("usuario") || "Desconocido"}
+          </div>
         </div>
 
         <div className="fila">
