@@ -55,7 +55,7 @@ const DashboardAdmin = () => {
           boxShadow: '2px 0 8px rgba(0,0,0,0.2)',
           transition: 'all 0.3s ease-in-out',
         }}>
-          <h2 style={{ marginBottom: '30px', fontSize: '22px', fontWeight: 'bold' }}>Administrador</h2>
+          <h2 style={{ marginBottom: '30px', fontSize: '22px', fontWeight: 'bold' }}>SanFe</h2>
 
           {['graficas', 'autos', 'personas', 'reservas', 'usuarios', 'pagos', 'registros', 'reporte'].map((seccion) => (
             <button
