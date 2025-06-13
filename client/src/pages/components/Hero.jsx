@@ -30,12 +30,12 @@ function Hero() {
       />
 
       <div className="container text-center" data-aos="fade-up" data-aos-delay="100">
-        <img
+        {/* <img
           src="/assets/img/logo.png"
           className="img-fluid mb-3"
           alt="Imperial Logo"
-        />
-        <h2>Welcome to Imperial Parking</h2>
+        /> */}
+        <h2>Welcome to SanFe Parking</h2>
         <p>
           We create{" "}
           <span

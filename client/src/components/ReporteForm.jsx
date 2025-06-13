@@ -114,8 +114,14 @@ ${data.observaciones}
     // Enviar al backend el objeto esperado
     const res = await generarReporte({
       tipoReporte: formData.tipoReporte,
+      fechaInicio: formData.fechaInicio,
+      fechaFin: formData.fechaFin,
+      usuario: formData.usuario,
+      resumen: formData.resumen,
+      observaciones: formData.observaciones,
       contenido: contenidoFinal,
-    });
+  });
+
 
     if (res.error) {
       setError(res.error);

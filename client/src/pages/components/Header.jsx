@@ -47,7 +47,7 @@ function Header() {
       >
         <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
           <a href="#hero" className="logo d-flex align-items-center">
-            <h1 className="sitename">Imperial</h1>
+            <h1 className="sitename">SanFe</h1>
           </a>
 
           <nav id="navmenu" className="navmenu">
