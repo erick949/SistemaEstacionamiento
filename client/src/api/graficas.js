@@ -15,19 +15,26 @@ export async function obtenerIngresosMensuales() {
   try {
     const datos = await sumaPagos();
     const ingresosMensuales = datos.map(dato => {
-    const fecha = new Date(dato.name); 
-    const diaNombre = `Día ${fecha.getDate()}`; // Resultado: Día 1, Día 2, ..
+      // Ajustar la fecha a la zona horaria 'America/Mexico_City'
+      const fechaLocal = new Date(
+        new Date(dato.name).toLocaleString('en-US', { timeZone: 'America/Mexico_City' })
+      );
+
+      const diaNombre = `Día ${fechaLocal.getDate()}`; // Día 1, Día 2, ...
+
       return {
         name: diaNombre,
         ingresos: dato.ingresos
       };
     });
+    console.log('Ingresos mensuales:', ingresosMensuales);
     return ingresosMensuales;
   } catch (error) {
     console.error('Error al obtener los ingresos mensuales:', error);
     return [];
   }
 }
+
 
 
 
